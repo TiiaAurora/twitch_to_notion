@@ -58,7 +58,7 @@ def convert_date(text):
     '''Convert a date in the form "Mon Feb 24 2020" into the form "September 10, 2021"'''
 
     twitch_date = datetime.strptime(text, '%a %b %d %Y')
-    notion_text = twitch_date.strftime('%B %d, %Y')
+    notion_text = twitch_date.strftime('%Y-%m-%d')
     return notion_text
 
 
