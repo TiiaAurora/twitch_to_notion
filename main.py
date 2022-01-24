@@ -55,7 +55,7 @@ def fix_format(data):
 
 
 def convert_date(text):
-    '''Convert a date in the form "Mon Feb 24 2020" into the form "September 10, 2021"'''
+    '''Convert a date in the form "Mon Feb 24 2020" into the form "2020-02-24"'''
 
     twitch_date = datetime.strptime(text, '%a %b %d %Y')
     notion_text = twitch_date.strftime('%Y-%m-%d')
@@ -71,7 +71,7 @@ def do_file(path, in_dir, out_dir):
 def do_whole_dir(in_dir, out_dir):
     files = os.listdir(in_dir)
     for file in files:
-        print(f'Doing {file}...')
+        print(f'Converting {file}...')
         do_file(file, in_dir, out_dir)
 
 
@@ -81,9 +81,9 @@ in_dir = 'data_raw'
 out_dir = 'data_notion'
 
 
-print('Mentally preparing to do the thing!')
+print('Reading files to convert into notion format...')
 # do_file(path, in_dir, out_dir)
 do_whole_dir(in_dir, out_dir)
-print('Did the thing!')
+print('All files are formatted and saved!')
 
 # %%
